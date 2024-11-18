@@ -20,9 +20,9 @@ interface ToggleSwitchProps {
 }
 
 const defaultProperties: ToggleSwitchProps = {
-  appearance: "subtle",
+  appearance: "default",
   state: "default",
-  size: "sm",
+  size: "lg",
   checked: false,
   width: "intrinsic",
   disabled: false,
@@ -77,7 +77,11 @@ function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
 
   return (
     <button
-      className={getToggleClasses(options, isChecked ?? false)}
+      className={
+        getToggleClasses(options, isChecked ?? false) +
+        " " +
+        toggleClasses.outerSize[options.size ?? "sm"]
+      }
       onClick={handleClick}
       disabled={options.disabled}
     >
@@ -85,7 +89,7 @@ function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
       {!options.iconOnly && (
         <span
           className={[
-            toggleClasses.size[options.size ?? "sm"],
+            toggleClasses.innerSize[options.size ?? "sm"],
             options.leadingIcon && "ml-2",
             options.trailingIcon && "mr-2",
           ]
