@@ -2,6 +2,24 @@
 
 The ToggleSwitch component is a customizable UI element that provides a toggleable switch control with various styling and functionality options.
 
+I added the following ARIA attributes for accessibility:
+
+- role="switch": Identifies the component as a toggle switch
+- aria-checked: Reflects the current state
+  aria-label: Provides accessible name
+- aria-describedby: Links to description element
+- aria-controls: Indicates what element this switch controls
+
+Keyboard Navigation:
+
+- Added onKeyDown handler for Enter and Space keys
+- Proper tabIndex management
+
+Focus Management:
+
+- Disabled elements are removed from tab order (tabIndex={-1})
+  Default tabIndex={0} for enabled elements
+
 This documentation provides a comprehensive overview of the ToggleSwitch component, including:
 
 - Basic usage
@@ -13,8 +31,7 @@ This documentation provides a comprehensive overview of the ToggleSwitch compone
 ```tsx
 import ToggleSwitch from "./toggle-switch";
 
-<ToggleSwitch  />
-
+<ToggleSwitch />;
 ```
 
 ### Basic Toggle
@@ -50,7 +67,11 @@ import ToggleSwitch from "./toggle-switch";
 ### Controlled
 
 ```tsx
-<ToggleSwitch label="Controlled Toggle" checked={true} onChange={(checked) => console.log(checked)} />
+<ToggleSwitch
+  label="Controlled Toggle"
+  checked={true}
+  onChange={(checked) => console.log(checked)}
+/>
 ```
 
 ### Custom Styling
@@ -64,4 +85,3 @@ import ToggleSwitch from "./toggle-switch";
 ```tsx
 <ToggleSwitch label="Subtle Toggle" appearance="subtle" />
 ```
-

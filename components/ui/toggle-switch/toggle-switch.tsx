@@ -19,6 +19,10 @@ interface ToggleSwitchProps {
   isChevron?: boolean;
   label?: string;
   onChange?: (checked: boolean) => void;
+  tabIndex?: number;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
+  ariaControls?: string;
 }
 
 const defaultProperties: ToggleSwitchProps = {
@@ -34,6 +38,10 @@ const defaultProperties: ToggleSwitchProps = {
   trailingIcon: false,
   isChevron: false,
   label: "Label",
+  tabIndex: 0,
+  ariaLabel: undefined,
+  ariaDescribedBy: undefined,
+  ariaControls: undefined,
 };
 
 function getToggleClasses(
@@ -70,6 +78,13 @@ function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
     options.onChange?.(newValue);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent): void => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   const renderIcon = (): React.ReactNode =>
     options.isChevron ? (
       <ChevronIcon
@@ -97,7 +112,14 @@ function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
         toggleClasses.outerSize[options.size ?? "sm"]
       }
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       disabled={options.disabled}
+      role="switch"
+      aria-checked={isChecked}
+      aria-label={options.ariaLabel || options.label}
+      aria-describedby={options.ariaDescribedBy}
+      aria-controls={options.ariaControls}
+      tabIndex={options.disabled ? -1 : options.tabIndex}
     >
       {(options.iconOnly || options.leadingIcon) && renderIcon()}
       {!options.iconOnly && (
