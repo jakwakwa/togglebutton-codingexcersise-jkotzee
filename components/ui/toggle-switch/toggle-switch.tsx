@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ToggleIcon } from "@/components/icons/toggle-icon";
 import { toggleClasses } from "./toggle-switch.constants";
+import { ChevronIcon } from "@/components/icons/chevron-icon";
 
 interface ToggleSwitchProps {
   appearance?: "default" | "subtle";
@@ -15,6 +16,7 @@ interface ToggleSwitchProps {
   iconOnly?: boolean;
   leadingIcon?: boolean;
   trailingIcon?: boolean;
+  isChevron?: boolean;
   label?: string;
   onChange?: (checked: boolean) => void;
 }
@@ -30,6 +32,7 @@ const defaultProperties: ToggleSwitchProps = {
   iconOnly: false,
   leadingIcon: false,
   trailingIcon: false,
+  isChevron: false,
   label: "Label",
 };
 
@@ -67,13 +70,24 @@ function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
     options.onChange?.(newValue);
   };
 
-  const renderIcon = () => (
-    <ToggleIcon
-      isDisabled={options.disabled}
-      isChecked={isChecked}
-      size={options.size}
-    />
-  );
+  const renderIcon = (): React.ReactNode =>
+    options.isChevron ? (
+      <ChevronIcon
+        isDisabled={options.disabled}
+        isChecked={isChecked}
+        size={options.size}
+        style={{
+          transform: isChecked ? "rotate(180deg)" : undefined,
+          transition: "transform 0.2s ease-in-out",
+        }}
+      />
+    ) : (
+      <ToggleIcon
+        isDisabled={options.disabled}
+        isChecked={isChecked}
+        size={options.size}
+      />
+    );
 
   return (
     <button

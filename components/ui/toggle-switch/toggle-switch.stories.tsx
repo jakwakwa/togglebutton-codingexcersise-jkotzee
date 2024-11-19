@@ -25,6 +25,7 @@ const meta: Meta<typeof ToggleSwitch> = {
     leadingIcon: { control: "boolean" },
     trailingIcon: { control: "boolean" },
     label: { control: "text" },
+    isChevron: { control: "boolean" },
   },
 };
 
@@ -109,5 +110,20 @@ export const FullWidth: Story = {
   args: {
     width: "full",
     label: "Full Width Toggle",
+  },
+};
+
+// Add new story for Chevron variant
+export const WithChevron: Story = {
+  args: {
+    isChevron: true,
+    label: "Chevron Toggle",
+  },
+};
+
+export const ChevronIconOnly: Story = {
+  args: {
+    isChevron: true,
+    iconOnly: true,
   },
 };
