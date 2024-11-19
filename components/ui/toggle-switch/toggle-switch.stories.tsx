@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ToggleSwitch from "./toggle-switch";
 
-const meta: Meta<typeof ToggleSwitch> = {
-  title: "UI/ToggleSwitch",
+const meta = {
+  title: "Components/ToggleSwitch",
   component: ToggleSwitch,
+  parameters: {
+    layout: "centered",
+  },
   tags: ["autodocs"],
   argTypes: {
     appearance: {
@@ -27,7 +30,7 @@ const meta: Meta<typeof ToggleSwitch> = {
     label: { control: "text" },
     isChevron: { control: "boolean" },
   },
-};
+} satisfies Meta<typeof ToggleSwitch>;
 
 export default meta;
 type Story = StoryObj<typeof ToggleSwitch>;
@@ -117,6 +120,7 @@ export const FullWidth: Story = {
 export const WithChevron: Story = {
   args: {
     isChevron: true,
+    leadingIcon: true,
     label: "Chevron Toggle",
   },
 };

@@ -1,0 +1,67 @@
+# ToggleSwitch Component
+
+The ToggleSwitch component is a customizable UI element that provides a toggleable switch control with various styling and functionality options.
+
+This documentation provides a comprehensive overview of the ToggleSwitch component, including:
+
+- Basic usage
+- Available props
+- Different variants and options
+
+## Usage
+
+```tsx
+import ToggleSwitch from "./toggle-switch";
+
+<ToggleSwitch  />
+
+```
+
+### Basic Toggle
+
+```tsx
+<ToggleSwitch label="Basic Toggle" />
+```
+
+### Icons
+
+```tsx
+<ToggleSwitch label="Toggle with Icon" leadingIcon />
+```
+
+### Chevron
+
+```tsx
+<ToggleSwitch label="Chevron Toggle" isChevron />
+```
+
+### Width
+
+```tsx
+<ToggleSwitch label="Full Width Toggle" width="full" />
+```
+
+### Disabled
+
+```tsx
+<ToggleSwitch label="Disabled Toggle" disabled />
+```
+
+### Controlled
+
+```tsx
+<ToggleSwitch label="Controlled Toggle" checked={true} onChange={(checked) => console.log(checked)} />
+```
+
+### Custom Styling
+
+```tsx
+<ToggleSwitch label="Custom Styled Toggle" className="bg-red-500" />
+```
+
+### Subtle
+
+```tsx
+<ToggleSwitch label="Subtle Toggle" appearance="subtle" />
+```
+
