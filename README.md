@@ -1,9 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Investec Design System Coding Challenge - Toggle Button
 
-## View Live Storyboook Instance
-[ToggleSwitch Live Storybook](https://673b9400d5550feb1975d271-swykolwanc.chromatic.com/?path=/story/ui-toggleswitch--default)
+This project implements the "Toggle Button" component from the provided Figma design as part of an application for the Design System Engineer role at Investec.
 
-## Getting Started
+**Project Overview**
+
+* **Figma Design:** [Link to Figma file](https://www.figma.com/design/b5NswTkSDEC3igrYkqfdf4/IDS---Assessment-(2024-11-13-Jaco-Kotzee)?node-id=1-9954&t=8AkGpGfa2JEYZbYv-1)
+* **Live Demo:** [Link to Chromatic](https://673b9400d5550feb1975d271-swykolwanc.chromatic.com/?path=/story/ui-toggleswitch--default)
+
+**Technical Decisions**
+
+* **Framework:** Next.js was chosen for its performance optimizations, server-side rendering capabilities, and strong typing support with TypeScript. These features are beneficial for building scalable and maintainable design systems.
+* **Component Design:** The `ToggleSwitch` component is designed for reusability and theming. It accepts props to control its state and appearance, allowing for easy integration within a larger design system.
+* **Accessibility:** The component adheres to accessibility best practices, including keyboard navigation and ARIA attributes, to ensure it is usable by everyone.
+* **TypeScript:** TypeScript ensures type safety and improves code maintainability.
+
+**Running the Project**
+
+1. **Clone the repository:** `git clone [repository URL]`
+2. **Install dependencies:** `yarn install`
+3. **Start the development server:** `yarn dev`
+4. **View the component in Storybook:** `yarn storybook`
+
+**Code Example (State Management)**
+
+```typescript
+// Simplified example the component in this project
+```typescript
+function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
+  // ... (rest of your component code) ...
+
+  return (
+    <button 
+      className={getToggleClasses(options, isChecked ?? false) + " " + toggleClasses.outerSize[options.size ?? "sm"]}
+      onClick={handleClick}
+      disabled={options.disabled}
+    >
+      {(options.iconOnly || options.leadingIcon) && renderIcon()} 
+      {!options.iconOnly && (
+        <span className={[
+          toggleClasses.innerSize[options.size ?? "sm"],
+          options.leadingIcon && "ml-2", 
+          options.trailingIcon && "mr-2", 
+        ].filter(Boolean).join(" ")}>
+          {options.label} 
+        </span>
+      )}
+      {options.trailingIcon && renderIcon()} 
+    </button>
+  );
+}
+
+// Usage in app:
+<div className="flex flex-row gap-8 row-start-2 items-center sm:items-center">
+  <ToggleSwitch iconOnly />
+  <ToggleSwitch label="Create" trailingIcon isChevron size="sm" />
+  <ToggleSwitch label="Filter" trailingIcon isChevron size="md" />
+  <ToggleSwitch label="Export" trailingIcon isChevron size="lg" />
+  <ToggleSwitch label="Sort" leadingIcon isChevron disabled={true} />
+  <ToggleSwitch
+    appearance="subtle"
+    label="Subtle"
+    trailingIcon
+    isChevron
+  />
+</div>
+```
+
+## Run Solution locally
 
 First, run the development server:
 
@@ -17,23 +80,18 @@ pnpm dev
 bun dev
 ```
 
+## Run Storybook instance locally:
+
+```bash
+npm run storybook
+# or
+yarn storybook
+# or
+pnpm storybook
+# or
+bun storybook
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
 ## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
