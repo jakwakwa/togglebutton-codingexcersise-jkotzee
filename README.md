@@ -25,7 +25,6 @@ This project implements the "Toggle Button" component from the provided Figma de
 
 ```typescript
 // Simplified example the component in this project
-```typescript
 function ToggleSwitch(props: ToggleSwitchProps): React.ReactElement {
   // ... (rest of your component code) ...
 
