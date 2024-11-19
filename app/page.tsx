@@ -10,7 +10,7 @@ export default function Home() {
         <h2 className="text-4xl font-bold">Quick Links</h2>
         <div className="flex flex-row gap-8 mb-8">
           <Link
-            href="https://673b9400d5550feb1975d271-swykolwanc.chromatic.com/?path=/story/ui-toggleswitch--default"
+            href="https://673b9400d5550feb1975d271-yqojskobdp.chromatic.com/"
             className="text-sm text-gray-500 hover:text-gray-900"
             target="_blank"
           >
