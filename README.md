@@ -5,7 +5,7 @@ This project implements the "Toggle Button" component from the provided Figma de
 ## Project Overview
 
 - **Figma Design:** [Link to Figma file](https://www.figma.com/design/b5NswTkSDEC3igrYkqfdf4/IDS---Assessment-(2024-11-13-Jaco-Kotzee)?node-id=1-9954&t=8AkGpGfa2JEYZbYv-1)
-- **Live Demo:** [Link to Chromatic](https://673b9400d5550feb1975d271-swykolwanc.chromatic.com/?path=/story/ui-toggleswitch--default)
+- **Live Demo:** [Link to Chromatic](https://www.chromatic.com/library?appId=673b9400d5550feb1975d271)
 
 ## Technical Decisions
 
