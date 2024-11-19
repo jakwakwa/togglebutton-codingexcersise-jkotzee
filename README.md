@@ -21,7 +21,7 @@ This project implements the "Toggle Button" component from the provided Figma de
 3. **Start the development server:** `yarn dev`
 4. **View the component in Storybook:** `yarn storybook`
 
-**Code Example (State Management)**
+**Code Example**
 
 ```typescript
 // Simplified example the component in this project
